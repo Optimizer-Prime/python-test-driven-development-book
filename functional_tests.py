@@ -26,9 +26,9 @@ class NewVisitorTest(unittest.TestCase):
 
         # Text box present for another entry
 
-        # page udpates again, shows both items
+        # page updates again, shows both items
 
-        # website creates unqiue URL to remember her list
+        # website creates unique URL to remember her list
 
         # user visits URL and list is still there
 
