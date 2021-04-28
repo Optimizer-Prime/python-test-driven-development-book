@@ -39,6 +39,7 @@ class NewVisitorTest(unittest.TestCase):
         # User hits enter, page updates, page shows entered task
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
+
         self.check_for_row_in_list_table('1: Buy peacock feathers')
 
         # Text box present for another entry
@@ -52,9 +53,10 @@ class NewVisitorTest(unittest.TestCase):
         self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
         # website creates unique URL to remember her list
+        self.fail('Finish the test!')
 
         # user visits URL and list is still there
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(warnings='ignore')
