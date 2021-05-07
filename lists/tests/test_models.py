@@ -1,3 +1,4 @@
+
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 from lists.models import Item, List
@@ -26,7 +27,7 @@ class ListAndItemModelsTest(TestCase):
         self.assertEqual(saved_items.count(), 2)
 
         first_saved_item = saved_items[0]
-        second_saved_item  = saved_items[1]
+        second_saved_item = saved_items[1]
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
         self.assertEqual(first_saved_item.list, list_)
         self.assertEqual(second_saved_item.text, 'Item the second')
