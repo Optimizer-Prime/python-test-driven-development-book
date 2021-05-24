@@ -11,6 +11,7 @@ class MyListsTest(FunctionalTest):
             session_key = create_session_on_server(self.staging_server, email)
         else:
             session_key = create_pre_authenticated_session(email)
+
         ## to set a cookie we need to first visit the domain.
         ## 404 pages load the quickest!
         self.browser.get(self.live_server_url + "/404_no_such_url/")
@@ -42,9 +43,6 @@ class MyListsTest(FunctionalTest):
         self.wait_for(
             lambda: self.assertEqual(self.browser.current_url, first_list_url)
         )
-        self.wait_for(
-            lambda: self.assertEqual(self.browser.current_url, first_list_url)
-        )
 
         # She decides to start another list, just to see
         self.browser.get(self.live_server_url)
@@ -61,9 +59,9 @@ class MyListsTest(FunctionalTest):
             lambda: self.assertEqual(self.browser.current_url, second_list_url)
         )
 
-        # She logs out. The "My lists" option disappears
+        # She logs out.  The "My lists" option disappears
         self.browser.find_element_by_link_text('Log out').click()
         self.wait_for(lambda: self.assertEqual(
-            self.browser.find_element_by_link_text('My lists'),
+            self.browser.find_elements_by_link_text('My lists'),
             []
         ))
